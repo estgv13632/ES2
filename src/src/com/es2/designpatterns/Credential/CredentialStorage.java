@@ -1,8 +1,9 @@
 package src.com.es2.designpatterns.Credential;
 
-public interface CredentialStorage {
+import java.util.List;
 
+public interface CredentialStorage {
     void saveCredential(Credential credential);
-    Credential loadCredential(String id);
+    List<Credential> loadCredentials();
 
 }

@@ -1,21 +1,18 @@
 package src.com.es2.designpatterns.Credential;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
 
-public class DatabaseStorage implements CredentialStorage{
-
-    private Map<String, Credential> database = new HashMap<>();
+public class DatabaseStorage implements CredentialStorage {
+    private List<Credential> database = new ArrayList<>();
 
     @Override
     public void saveCredential(Credential credential) {
-        database.put(credential.getId(), credential);
-        System.out.println("Credencial salva na base de dados: " + credential);
+        database.add(credential);
     }
 
     @Override
-    public Credential loadCredential(String id) {
-        return database.get(id);
+    public List<Credential> loadCredentials() {
+        return new ArrayList<>(database);
     }
-
 }
